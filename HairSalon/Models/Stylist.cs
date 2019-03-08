@@ -8,7 +8,7 @@ namespace HairSalon.Models
   private string _name;
   private int _id;
 
-  public Stylist(string name, int id = 0)
+  public Stylist(string name, int id=0)
   {
     _name = name;
     _id = id;
@@ -75,7 +75,7 @@ namespace HairSalon.Models
   MySqlConnection conn = DB.Connection();
   conn.Open();
   var cmd = conn.CreateCommand() as MySqlCommand;
-  cmd.CommandText = @"  INSERT INTO stylist (name) VALUES (@name);";
+  cmd.CommandText = @"INSERT INTO stylist (name) VALUES (@name);";
   MySqlParameter name = new MySqlParameter();
   name.ParameterName = "@name";
   name.Value = this._name;

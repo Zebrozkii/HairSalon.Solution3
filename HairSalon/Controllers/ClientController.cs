@@ -14,7 +14,7 @@ namespace HairSalon.Controllers
        return View(stylist);
     }
 
-    [HttpGet("/stylists/{stylistId}/clients/{clientsId}")]
+    [HttpGet("/stylists/{stylistId}/clients/{clientId}")]
     public ActionResult Show(int stylistId, int clientId)
     {
       Client client = Client.Find(clientId);

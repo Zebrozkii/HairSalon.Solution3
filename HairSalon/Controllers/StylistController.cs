@@ -25,8 +25,8 @@ namespace HairSalon.Controllers
     public ActionResult Create(string stylistName)
     {
       Stylist newStylist = new Stylist(stylistName);
-      List<Stylist> allStylist = Stylist.GetAll();
-      return View("Index", allStylist);
+      newStylist.Save();
+      return RedirectToAction("Index");
     }
 
     [HttpGet("/stylists/{id}")]

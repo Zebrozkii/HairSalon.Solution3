@@ -163,10 +163,9 @@ namespace HairSalon.Models
         thisId.Value = this.GetId();
         cmd.Parameters.Add(thisId);
         cmd.ExecuteNonQuery();
-        conn.Close();
         if(conn != null)
         {
-          conn.Dispose();
+          conn.Close();
         }
       }
   }

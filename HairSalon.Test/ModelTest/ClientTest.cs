@@ -12,13 +12,11 @@ namespace HairSalon.Tests
     {
       Client.ClearAll();
     }
-    
+
     public ClientTest()
     {
       DBConfiguration.ConnectionString = "server = localhost;user id=root;password=root;port=8889;database=jimmy_zebroski_test;";
     }
-
-
 
     [TestMethod]
 
@@ -61,8 +59,8 @@ namespace HairSalon.Tests
   public void Equals_ReturnsTrueIfNamesAreTheSame_Client()
   {
     //Arrange, Act
-    Client firstClient = new Client("Shannon");
-    Client secondClient = new Client("Shannon");
+    Client firstClient = new Client("Shannon",1);
+    Client secondClient = new Client("Shannon",1);
 
     //Assert
     Assert.AreEqual(firstClient, secondClient);
@@ -71,7 +69,7 @@ namespace HairSalon.Tests
   public void Save_SavesClientToDatabase_ClientList()
   {
     //Arrange
-    Client testClient = new Client("Shannon");
+    Client testClient = new Client("Shannon",1);
     testClient.Save();
 
     //Act
@@ -85,12 +83,10 @@ namespace HairSalon.Tests
   public void Save_DatabaseAssignsIdToClient_Id()
   {
     //Arrange
-    Client testClient = new Client("Shannon");
+    Client testClient = new Client("Shannon",1);
     testClient.Save();
-
     //Act
     Client savedClient = Client.GetAll()[0];
-
     int result = savedClient.GetId();
     int testId = testClient.GetId();
 
@@ -101,12 +97,10 @@ namespace HairSalon.Tests
   public void Find_ReturnsClientInDatabase_Client()
   {
     //Arrange
-    Client testClient = new Client("Barb");
+    Client testClient = new Client("Barb",1);
     testClient.Save();
-
     //Act
     Client foundClient = Client.Find(testClient.GetId());
-
     //Assert
     Assert.AreEqual(testClient, foundClient);
   }

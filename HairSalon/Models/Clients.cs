@@ -9,7 +9,7 @@ namespace HairSalon.Models
     private int _id;
     private int _stylistId;
 
-    public Client(string name,int stylistId=0, int id=0)
+    public Client(string name,int stylistId, int id=0)
     {
       _name = name;
       _id = id;
@@ -135,7 +135,7 @@ namespace HairSalon.Models
         MySqlConnection conn = DB.Connection();
         conn.Open();
         var cmd = conn.CreateCommand() as MySqlCommand;
-        cmd.CommandText = @"UPDATE Client SET name = @newName WHERE id = @searchId;";
+        cmd.CommandText = @"UPDATE clients SET name = @newName WHERE id = @searchId;";
         MySqlParameter searchId = new MySqlParameter();
         searchId.ParameterName = "@searchId";
         searchId.Value = _id;
@@ -159,8 +159,8 @@ namespace HairSalon.Models
         var cmd = conn.CreateCommand() as MySqlCommand;
         cmd.CommandText = @"DELETE FROM clients WHERE id = @thisId;";
         MySqlParameter thisId = new MySqlParameter();
-        thisId.ParameterName = "thisId";
-        thisId.Value = id;
+        thisId.ParameterName = "@thisId";
+        thisId.Value = this.GetId();
         cmd.Parameters.Add(thisId);
         cmd.ExecuteNonQuery();
         conn.Close();

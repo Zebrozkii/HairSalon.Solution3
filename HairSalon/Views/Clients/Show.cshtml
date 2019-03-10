@@ -1,14 +1,14 @@
 <h1>Hair Salon client names: </h1>
 
-<h2>@Model["client"].GetName()</h2>
-<h3>stylist: @Model["stylist"].GetName()</h3>
+<h2>@Model["clients"].GetName()</h2>
+<h3>stylist: @Model["stylists"].GetName()</h3>
 
-<a href='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit'>Edit this client</a>
-<br><br>
+<a href='/stylists/@Model["stylists"].GetId()/clients/@Model["clients"].GetId()/edit'>Edit this client</a>
 
-<form action="/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/delete" method="post">
+
+<form action="/stylists/@Model["stylists"].GetId()/clients/@Model["clients"].GetId()/delete" method="post">
   <button type="submit">Delete this client</button>
 </form>
 
-<a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add another client</a>
+<a href='/stylists/@Model["stylists"].GetId()/clients/new'>Add another client</a>
 <a href='/stylists'>View all stylists</a>

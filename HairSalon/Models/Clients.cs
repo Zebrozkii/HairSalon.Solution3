@@ -9,7 +9,7 @@ namespace HairSalon.Models
     private int _id;
     private int _stylistId;
 
-    public Client(string name,int stylistId=0, int id=0 )
+    public Client(string name,int stylistId=0, int id=0)
     {
       _name = name;
       _id = id;
@@ -28,7 +28,7 @@ namespace HairSalon.Models
     {
       return _stylistId;
     }
-    
+
     public static void ClearAll()
     {
    MySqlConnection conn = DB.Connection();

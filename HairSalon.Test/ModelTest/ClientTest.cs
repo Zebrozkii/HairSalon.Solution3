@@ -6,16 +6,17 @@ using System;
 namespace HairSalon.Tests
 {
   [TestClass]
-  public class ClientTest
+  public class ClientTest : IDisposable
   {
-  public void Dispose()
-  {
-    Client.ClearAll();
-  }
     public ClientTest()
     {
       DBConfiguration.ConnectionString = "server = localhost;user id=root;password=root;port=8889;database=jimmy_zebroski_test;";
     }
+
+  public void Dispose()
+  {
+    Client.ClearAll();
+  }
 
     [TestMethod]
 
@@ -35,8 +36,16 @@ namespace HairSalon.Tests
       int id = 1;
      Client test = new Client(name,id);
       int result = test.GetId();
-      Assert.AreEqual(result,1);
+      Assert.AreEqual(result,0);
     }
+    [TestMethod]
+    public void ClientConstructor_Test()
+    {
+
+      Client newClient = new Client("test", 1);
+      Assert.AreEqual(typeof(Client),newClient.GetType());
+    }
+
     [TestMethod]
     public void GetAll_ClientEmptyAtFirst_List()
     {

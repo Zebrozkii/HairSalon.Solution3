@@ -99,8 +99,6 @@ public void Find_ReturnsStylistInDatabase_Stylist()
 
   //Assert
   Assert.AreEqual(testStylist, foundStylist);
-}
-
-
+    }
   }
 }

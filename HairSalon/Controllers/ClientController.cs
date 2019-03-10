@@ -24,12 +24,13 @@ namespace HairSalon.Controllers
       model.Add("stylist", stylist);
       return View(model);
     }
-    // [HttpPost("/items/delete")]
-    // public ActionResult DeleteAll()
-    // {
-    //   Client.ClearAll();
-    //   return View();
-    // }
+    
+    [HttpPost("/clients/delete")]
+    public ActionResult DeleteAll()
+    {
+      Client.ClearAll();
+      return View();
+    }
 
   }
 }

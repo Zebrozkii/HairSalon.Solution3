@@ -39,8 +39,15 @@ namespace HairSalon.Controllers
       model.Add("client", stylistClient);
       return View(model);
     }
+    [HttpPost("/stylists/{id}/delete")]
+      public ActionResult Delete(int id)
+      {
+        Stylist selectedStylist = Stylist.Find(id);
+        selectedStylist.Delete(id);
+        return RedirectToAction("Index");
+      }
 
-    // This one creates new Items within a given Category, not new Categories:
+    // This one creates new Items within a given Stylist, not new Stylist:
     [HttpPost("/stylists/{stylistId}/clients")]
     public ActionResult Create(int stylistId, string clientName)
     {
@@ -54,6 +61,7 @@ namespace HairSalon.Controllers
       model.Add("stylist", foundStylist);
       return View("Show", model);
     }
+
 
   }
 }

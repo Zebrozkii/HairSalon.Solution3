@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
 using System.Collections.Generic;
+using System;
 
 namespace HairSalon.Controllers
 {
@@ -28,10 +29,11 @@ namespace HairSalon.Controllers
     [HttpPost("/stylists/{stylistId}/clients/{clientId}/delete")]
      public ActionResult Delete(int stylistId, int clientId)
      {
-       Stylist foundStylist = Stylist.Find(stylistId);
        Client client = Client.Find(clientId);
-       client.Delete(clientId);
-       return View(foundStylist);
+       Console.WriteLine("Client found " + client.GetId().ToString());
+       client.Delete();
+
+       return RedirectToAction("Show", "Stylist", new { id = stylistId });
      }
 
 

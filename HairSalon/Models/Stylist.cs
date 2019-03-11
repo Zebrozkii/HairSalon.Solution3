@@ -123,7 +123,7 @@ namespace HairSalon.Models
     cmd.CommandText = @"SELECT * FROM clients WHERE stylist_id = @stylist_id;";
     MySqlParameter stylistId = new MySqlParameter();
     stylistId.ParameterName = "@stylist_id";
-    stylistId.Value = this._id;
+    stylistId.Value = _id;
     cmd.Parameters.Add(stylistId);
     var rdr = cmd.ExecuteReader() as MySqlDataReader;
     while (rdr.Read())

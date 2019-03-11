@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using System;
 
 namespace HairSalon.Models
 {
@@ -42,7 +43,7 @@ namespace HairSalon.Models
         int clientId = rdr.GetInt32(0);
         string clientName = rdr.GetString(1);
         int clientStylistID = rdr.GetInt32(2);
-        Client newClient = new Client(clientName, clientId, clientStylistID);
+        Client newClient = new Client(clientName, clientStylistID, clientId );
         allClients.Add(newClient);
         }
         if(conn != null)
@@ -69,6 +70,7 @@ namespace HairSalon.Models
       {
         MySqlConnection conn = DB.Connection();
         conn.Open();
+        Console.WriteLine("Find {0}", id);
         var cmd = conn.CreateCommand() as MySqlCommand;
         cmd.CommandText = @"SELECT * FROM clients WHERE id = (@searchId);";
         MySqlParameter searchId = new MySqlParameter();
@@ -85,7 +87,9 @@ namespace HairSalon.Models
           ClientName = rdr.GetString(1);
           ClientStylistID = rdr.GetInt32(2);
         }
-        Client newClient = new Client(ClientName, ClientId, ClientStylistID);
+        Client newClient = new Client(ClientName, ClientStylistID, ClientId);
+        Console.WriteLine("Found "+ClientName);
+        Console.WriteLine("Found2 " + newClient.GetName());
         conn.Close();
         if (conn != null)
         {
@@ -152,20 +156,24 @@ namespace HairSalon.Models
           conn.Dispose();
         }
       }
-      public void Delete(int id)
+      public void Delete()
       {
+        Console.WriteLine("Delete method started");
         MySqlConnection conn = DB.Connection();
         conn.Open();
+        Console.WriteLine("Delete {0}", _id);
         var cmd = conn.CreateCommand() as MySqlCommand;
         cmd.CommandText = @"DELETE FROM clients WHERE id = @thisId;";
         MySqlParameter thisId = new MySqlParameter();
         thisId.ParameterName = "@thisId";
-        thisId.Value = this.GetId();
+        thisId.Value = _id;
         cmd.Parameters.Add(thisId);
         cmd.ExecuteNonQuery();
+        conn.Close();
+
         if(conn != null)
         {
-          conn.Close();
+          conn.Dispose();
         }
       }
   }

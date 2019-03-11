@@ -41,8 +41,8 @@ namespace HairSalon.Models
         {
         int clientId = rdr.GetInt32(0);
         string clientName = rdr.GetString(1);
-        int clientStylistId = rdr.GetInt32(2);
-        Client newClient = new Client(clientName, clientId, clientStylistId);
+        int clientStylistID = rdr.GetInt32(2);
+        Client newClient = new Client(clientName, clientId, clientStylistID);
         allClients.Add(newClient);
         }
         if(conn != null)
@@ -154,19 +154,19 @@ namespace HairSalon.Models
       }
       public void Delete(int id)
       {
-          MySqlConnection conn = DB.Connection();
-          conn.Open();
-          var cmd = conn.CreateCommand() as MySqlCommand;
-          cmd.CommandText = @"DELETE FROM clients WHERE id = @clientId;"; //<--- might need a s on that @clientId
-          MySqlParameter clientIdParameter = new MySqlParameter();
-          clientIdParameter.ParameterName = "@clientId";
-          clientIdParameter.Value = this.GetId();
-          cmd.Parameters.Add(clientIdParameter);
-          cmd.ExecuteNonQuery();
-          if (conn != null)
-          {
-              conn.Close();
-          }
+        MySqlConnection conn = DB.Connection();
+        conn.Open();
+        var cmd = conn.CreateCommand() as MySqlCommand;
+        cmd.CommandText = @"DELETE FROM clients WHERE id = @thisId;";
+        MySqlParameter thisId = new MySqlParameter();
+        thisId.ParameterName = "@thisId";
+        thisId.Value = this.GetId();
+        cmd.Parameters.Add(thisId);
+        cmd.ExecuteNonQuery();
+        if(conn != null)
+        {
+          conn.Close();
+        }
       }
   }
 }

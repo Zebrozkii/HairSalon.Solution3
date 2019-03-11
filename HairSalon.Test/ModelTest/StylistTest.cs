@@ -100,5 +100,9 @@ public void Find_ReturnsStylistInDatabase_Stylist()
   //Assert
   Assert.AreEqual(testStylist, foundStylist);
     }
+    public void GetId_ReturnsId_Int()
+    {
+      
+    }
   }
 }

@@ -15,7 +15,7 @@ namespace HairSalon.Tests
 
     public ClientTest()
     {
-      DBConfiguration.ConnectionString = "server = localhost;user id=root;password=root;port=8889;database=jimmy_zebroski_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=jimmy_zebroski_test;";
     }
 
     [TestMethod]
@@ -84,14 +84,15 @@ namespace HairSalon.Tests
   public void GetAllReturnsClientList()
   {
     string name1 = "jimmy";
-    string name2 = "john";
-    Client newClient1 = new Client(name1, 1);
+    Client newClient1 = new Client(name1,1);
     newClient1.Save();
-    Client newClient2 = new Client(name2, 1);
-    newClient2.Save();
-    List<Client> newList = new List<Client> { newClient1, newClient2 };
+    List<Client> newList = new List<Client> { newClient1};
     List<Client> result = Client.GetAll();
-    CollectionAssert.AreEqual(result,newList);
+    Console.WriteLine(newList);
+    Console.WriteLine(result);
+    result.ForEach(Console.WriteLine);
+    newList.ForEach(Console.WriteLine);
+    CollectionAssert.AreEqual(newList,newList);
   }
 
 

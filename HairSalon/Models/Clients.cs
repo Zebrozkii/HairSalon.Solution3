@@ -32,7 +32,7 @@ namespace HairSalon.Models
 
     public static List<Client> GetAll()
       {
-      List<Client> allClients = new List<Client>{ };
+      List<Client> allClients = new List<Client>{};
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;

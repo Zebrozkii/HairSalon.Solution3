@@ -5,19 +5,25 @@ using HairSalon.Models;
 
 namespace HairSalon.Controllers
 {
-  public class StylistController : Controller
+  public class StylistsController : Controller
   {
 
     [HttpGet("/stylists")]
     public ActionResult Index()
     {
-      List<Stylist> allStylist = Stylist.GetAll();
-      return View(allStylist);
+      List<Stylist> allStylists = Stylist.GetAll();
+      return View(allStylists);
     }
 
     [HttpGet("/stylists/new")]
     public ActionResult New()
     {
+      return View();
+    }
+    [HttpGet("/stylists/deleteall")]
+    public ActionResult DeleteAll()
+    {
+      Stylist.ClearAll();
       return View();
     }
 
@@ -46,6 +52,7 @@ namespace HairSalon.Controllers
         selectedStylist.Delete(id);
         return RedirectToAction("Index");
       }
+
 
     // This one creates new Items within a given Stylist, not new Stylist:
     [HttpPost("/stylists/{stylistId}/clients")]

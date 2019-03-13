@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using System;
 
 namespace HairSalon.Models
 {
@@ -37,25 +38,24 @@ namespace HairSalon.Models
   }
   public static List<Stylist> GetAll()
   {
-    List<Stylist> allStylist = new List<Stylist> {};
+    List<Stylist> allStylists = new List<Stylist>{};
     MySqlConnection conn = DB.Connection();
     conn.Open();
-    var cmd = conn.CreateCommand() as MySqlCommand;
+    MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
     cmd.CommandText = @"SELECT * FROM stylist;";
-    var rdr = cmd.ExecuteReader() as MySqlDataReader;
+    MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
     while(rdr.Read())
     {
-      int stylistId = rdr.GetInt32(0);
       string stylistName = rdr.GetString(1);
+      int stylistId = rdr.GetInt32(0);
       Stylist newStylist = new Stylist(stylistName, stylistId);
-      allStylist.Add(newStylist);
+      allStylists.Add(newStylist);
     }
-    conn.Close();
     if (conn != null)
     {
       conn.Dispose();
     }
-    return allStylist;
+    return allStylists;
   }
   public override bool Equals(System.Object otherStylist)
   {

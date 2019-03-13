@@ -50,7 +50,7 @@ namespace HairSalon.Controllers
         return RedirectToAction("Show",  new { id = specialtyId });
       }
 
-      [HttpPost("/specialty/deleteall")]
+      [HttpGet("/specialty/deleteall")]
       public ActionResult DeleteAll()
       {
         Specialty.ClearAll();

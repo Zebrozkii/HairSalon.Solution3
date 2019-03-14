@@ -7,16 +7,27 @@
   <li><a href='/clients/@client.GetId()'>@client.GetName()</a></li>
 }
 </ol>
-
-
-<h4>Add a stylist to this specialty:</h4>
-
-<form action='/specialty/@Model["selectedSpecialty"].GetId()/stylists/new' method='post'>
-    <label for='stylistId'>Select a stylist</label>
-    <select id='stylistId' name='stylistId' type='text'>
-    @foreach (var stylist in @Model["allStylists"])
+@if (@Model["specialtyStylists"].Count != 0)
+{
+    <h3>This Specialty is used by all these stylists:</h3>
+    <ul>
+    @foreach (var specialty in @Model["specialtyStylists"])
     {
-        <option value='@stylist.GetId()'>@stylist.GetName()</option>
+        <li>@specialty.GetSpecialty()</li>
+    }
+    </ul>
+}
+
+
+
+<h4>Add a specialty to stylist:</h4>
+
+<form action='/stylists/@Model["stylist"].GetId()/specialty/edit' method='post'>
+    <label for='specialtyId'>Select a Specialty</label>
+    <select id='specialtyId' name='specialtyId' type='text'>
+    @foreach (var specialty in @Model["allSpecialty"])
+    {
+        <option value='@specialty.GetId()'>@specialty.GetSpecialty()</option>
     }
     </select>
     <button type='submit'>Add</button>

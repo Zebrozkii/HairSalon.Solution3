@@ -100,9 +100,29 @@ public void Find_ReturnsStylistInDatabase_Stylist()
   //Assert
   Assert.AreEqual(testStylist, foundStylist);
     }
-    public void GetId_ReturnsId_Int()
-    {
-      
-    }
+    [TestMethod]
+public void GetClients_ReturnsEmptyClientList_ClientList()
+  {
+      string name = "Work";
+      Stylist newStylist = new Stylist(name);
+      List<Client> newList = new List<Client> {};
+      List<Client> result = newStylist.GetClient();
+      CollectionAssert.AreEqual(newList, result);
   }
+  [TestMethod]
+ public void GetClients_RetrievesAllClientsWithStylist_ClientList()
+ {
+     Stylist testStylist = new Stylist("brenda");
+     testStylist.Save();
+     Client firstClient = new Client("susan", testStylist.GetId());
+     firstClient.Save();
+     Client secondClient = new Client("dave", testStylist.GetId());
+     secondClient.Save();
+     List<Client> testClientList = new List<Client> { firstClient, secondClient };
+     List<Client> resultClientList = testStylist.GetClient();
+     CollectionAssert.AreEqual(testClientList, resultClientList);
+ }
+
+
+}
 }

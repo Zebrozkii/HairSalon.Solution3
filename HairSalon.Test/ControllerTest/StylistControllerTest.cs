@@ -6,33 +6,24 @@ using HairSalon.Models;
 
 namespace HairSalon.Tests
 {
-  [TestClass]
-    public class StylistControllerTest
+    [TestClass]
+    public class StylistsControllerTest
     {
-      [TestMethod]
-      public void Index_ReturnsCorrectView_True()
-      {
-        //Arrange
-        StylistController controller = new StylistController();
+        [TestMethod]
+        public void Create_ReturnsCorrectActionType_RedirctToActionResult()
+        {
+            StylistController controller = new StylistController();
+            ActionResult view = controller.Create("style their hair");
+            Assert.IsInstanceOfType(view, typeof(RedirectToActionResult));
+        }
 
-        //Act
-        ActionResult indexView = controller.Index();
-
-        //Assert
-        Assert.IsInstanceOfType(indexView, typeof(ViewResult));
-      }
-
-      [TestMethod]
-      public void Index_HasCorrectModelType_ItemList()
-      {
-        //Arrange
-        ViewResult indexView = new StylistController().Index() as ViewResult;
-
-        //Act
-        var result = indexView.ViewData.Model;
-
-        //Assert
-        Assert.IsInstanceOfType(result, typeof(List<Stylist>));
-      }
+        [TestMethod]
+        public void Create_RedirectToCorrectAction_Index()
+        {
+            StylistController controller = new StylistController();
+            RedirectToActionResult actionResult = controller.Create("cut the hair") as RedirectToActionResult;
+            string result = actionResult.ActionName;
+            Assert.AreEqual(result, "Index");
+        }
     }
 }

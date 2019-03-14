@@ -1,17 +1,17 @@
 # _Hair Salon Webpage_
-### _ A website to store Stylist and Clients data, 03/10/19_
+### _ A website to store Stylist and Clients, and add Specialty data, 03/10/19_
 
 #### By _ **Jimmy Zebroski**_
 
 ## Description
 
-_ This webpage allows the user to input stylist, and clients. You can also view all the stylist  and all the clients per stylist.you can also add or delete stylist and clients if within the proper stage of the webpage._
+_ This webpage allows the user to input stylist,clients, and specialty. You can also view all the stylist,clients, and specailties" per stylist.you can also add or delete stylist and clients if within the proper stage of the webpage._
 
 ## Specs
 
-1.User can add stylists, clients to database.
-2.User can Edit and delete clients and stylist.
-2.User can delete stylist and clients.
+1.User can add stylists, clients, and specialty to database.
+2.User can Edit and delete specialty, clients and stylist.
+2.User can delete stylist and clients, and specialty.
 
 ## Setup/Installation
 1.Download .NetCore 1.1.4 SDK and .NetCore Runtime 1.1.2 and 2.install them.Download Mono and install it.

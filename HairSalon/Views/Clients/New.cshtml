@@ -1,6 +1,6 @@
 <h1>Add a new client to </h1>
 
-<form action='/stylists/@Model.GetId()/clients/new' method='post'>
+<form action='/stylists/{stylistId}/clients/new' method='post'>
   <input id='stylistId' name='stylistId' type='hidden' value='@Model.GetId()'>
   <label for='clientName'>client Name</label>
   <input id='clientName' name='clientName' type='text'>

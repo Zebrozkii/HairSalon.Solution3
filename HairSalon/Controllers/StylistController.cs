@@ -77,7 +77,7 @@ namespace HairSalon.Controllers
        }
 
        [HttpPost("/stylists/{stylistId}")]
-        public ActionResult Update(int stylistId,string editName)
+        public ActionResult Update(int stylistId, string newName)
         {
             Dictionary<string, object> model = new Dictionary<string, object>();
             Stylist selectedStylist = Stylist.Find(stylistId);
@@ -86,9 +86,9 @@ namespace HairSalon.Controllers
             List<Specialty> allSpecialties = Specialty.GetAll();
             model.Add("specialtyStylists", specialtyStylists);
             model.Add("stylist", selectedStylist);
-            model.Add("clients", stylistClients);
+            model.Add("client", stylistClients);
             model.Add("allSpecialties", allSpecialties);
-            selectedStylist.Edit(editName);
+            selectedStylist.Edit(newName);
             return View("Show", model);
         }
 

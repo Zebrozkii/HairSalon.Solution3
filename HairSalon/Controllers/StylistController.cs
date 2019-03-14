@@ -45,7 +45,7 @@ namespace HairSalon.Controllers
       model.Add("client", stylistClient);
       return View(model);
     }
-    [HttpPost("/stylists/{id}/delete")]
+    [HttpGet("/stylists/{id}/delete")]
       public ActionResult Delete(int id)
       {
         Stylist selectedStylist = Stylist.Find(id);
@@ -55,7 +55,7 @@ namespace HairSalon.Controllers
 
 
     // This one creates new Items within a given Stylist, not new Stylist:
-    [HttpGet("/stylists/{stylistId}/clients/new")]
+    [HttpPost("/stylists/{stylistId}/clients/new")]
      public ActionResult Create(string clientName, int stylistId)
      {
        Dictionary<string, object> model = new Dictionary<string, object>();

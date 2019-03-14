@@ -32,17 +32,5 @@ namespace HairSalon.Tests
             string result = newSpecialty.GetSpecialty();
             Assert.AreEqual(specialty, result);
         }
-        [TestMethod]
-public void Save_SaveSpecialtyToDatabase_SpecialtyList()
-    {
-        Specialty testSpecialty = new Specialty("dying hair");
-        testSpecialty.Save();
-        List<Specialty> result = Specialty.GetAll();
-        List<Specialty> testList = new List<Specialty> { testSpecialty };
-        CollectionAssert.AreEqual(testList, result);
-      }
-
-
-
     }
   }

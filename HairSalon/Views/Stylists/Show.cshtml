@@ -9,6 +9,21 @@
 </ol>
 
 
+<h4>Add a stylist to this specialty:</h4>
+
+<form action='/specialty/@Model["selectedSpecialty"].GetId()/stylists/new' method='post'>
+    <label for='stylistId'>Select a stylist</label>
+    <select id='stylistId' name='stylistId' type='text'>
+    @foreach (var stylist in @Model["allStylists"])
+    {
+        <option value='@stylist.GetId()'>@stylist.GetName()</option>
+    }
+    </select>
+    <button type='submit'>Add</button>
+</form>
+
+
+
 <form action="/stylists/@Model["stylist"].GetId()/delete" method="post">
   <button type="submit">Delete this stylist</button>
 </form>

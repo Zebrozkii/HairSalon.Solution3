@@ -56,15 +56,13 @@ namespace HairSalon.Controllers
 
     // This one creates new Items within a given Stylist, not new Stylist:
     [HttpPost("/stylists/{stylistId}/clients/new")]
-     public ActionResult Create(string clientName, int stylistId)
+     public ActionResult New(string clientName, int stylistId)
      {
        Dictionary<string, object> model = new Dictionary<string, object>();
        Stylist foundStylist = Stylist.Find(stylistId);
        Client newClient = new Client(clientName, stylistId);
        newClient.Save();
        List<Client> stylistClients = foundStylist.GetClient();
-       List<Specialty> specialtyStylist = foundStylist.GetSpecialty();
-       model.Add("specialtyStylist", specialtyStylist);
        model.Add("client", stylistClients);
        model.Add("stylist", foundStylist);
        return View("Show", model);

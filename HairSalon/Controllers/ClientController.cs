@@ -26,6 +26,7 @@ namespace HairSalon.Controllers
             Stylist stylist = Stylist.Find(stylistId);
             return View(stylist);
         }
+
         [HttpGet("/clients/{clientId}")]
         public ActionResult Show(int clientId)
         {
@@ -57,7 +58,6 @@ namespace HairSalon.Controllers
           model.Add("client", client);
           return View("Show", model);
       }
-
 
   }
 }

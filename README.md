@@ -1,27 +1,81 @@
-# _Hair Salon Webpage_
-### _ A website to store Stylist and Clients, and add Specialty data, 03/10/19_
-
-#### By _ **Jimmy Zebroski**_
+# Hair Salon Webpage
+## by Jimmy Zebroski
 
 ## Description
+This webpage lets users see Stylists, Clients, and Specialties, and lets users add stylists and specialties. It will also allow users to add/update clients to specific stylists, as well as add specialties by themselves or to specific stylists. The user can also delete clients and stylists, and change the name of clients and stylists. The user can view a list of all clients, and see which stylist the client is attached to. The user can view a list of all specialties and add a stylist to them as well.
 
-_ This webpage allows the user to input stylist,clients, and specialty. You can also view all the stylist,clients, and specailties" per stylist.you can also add or delete stylist and clients if within the proper stage of the webpage._
+## Specifications
+* User can add new stylists
+* > Input: "Jane"
+* > Output: Creates stylist with the name: "Jane"
+* User can see list of all stylists
+* User can add new clients to specific stylist
+* > Input: "Jim"
+* > Output: Creates client with the name: "Jim"
+* User can select a stylist, see details of stylist, and see all clients and specialties that belong to that stylist
+* User can update client information
+* > Input: "Jim"
+* > Output: Update client name with the name: "Jimbo"
+* User can delete all or single stylists
+* User can delete all or single clients
+* User can view a list of all or single clients
+* User can update stylist name
+* > Input: "Janey"
+* > Output: Update client name with the name: "Janey"
+* User can add a specialty
+* > Input: "Bob Cut"
+* > Output: Creates a specialty of: "Bob Cut"
+* User can view all specialties
+* User can add a specialty to specific stylist
+* User can view specialty and see all stylists that have that specialty
+* User can add a stylist a stylist to a specialty from a specialty page
 
-## Specs
 
-1.User can add stylists, clients, and specialty to database.
-2.User can Edit and delete specialty, clients and stylist.
-2.User can delete stylist and clients, and specialty.
+### Setup Instructions
+Download .NET Core 1.1.4 SDK and .NET Core Runtime 1.1.2 and MAMP and install them.
 
-## Setup/Installation
-1.Download .NetCore 1.1.4 SDK and .NetCore Runtime 1.1.2 and 2.install them.Download Mono and install it.
-3.Clone the repo using $git clone in the terminal.
-4.Navigate through the terminal to the file and enter into HairSalon directory.
-5.you can use dotnet run to build and run the project which will now be available at you localhost.
+* Clone repository
+* Add it to your desktop using "git clone "https://github.com/tannerdamron/HairSalon.Solution""
+* Open in preferred text editor to see all code used
+* Open MAMP (make sure Apache port is 8888 & MySql port is 8889) and start both the Apache serve and the MySql server
+* !Database must be created first to use webpage!
+* In the Command Prompt or Terminal use the command "mysql -uroot -proot"
+* Use the following SQL commands in MySql to create database:
+* > "CREATE DATABASE hair_salon;"
+* > "USE hair_salon;"
+* > "CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR(255));"
+* > "CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR(255)), stylist_id INT;"
+* > CREATE TABLE speciality (id serial PRIMARY KEY, name VARCHAR(255));
+* > CREATE TABLE speciality_stylists (id serial PRIMARY KEY, speciality_id INT, stylist_id INT;
+* > "CREATE DATABASE hair_salon_test;"
+* > "USE hair_salon_test;"
+* > "CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR(255));"
+* > "CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR(255)), stylist_id INT;"
+* > CREATE TABLE speciality (id serial PRIMARY KEY, name VARCHAR(255));
+* > CREATE TABLE speciality_stylists (id serial PRIMARY KEY, speciality_id INT, stylist_id INT;
+* To use the webpage, first navigate to the directory "HairSalon"
+* Use the following commands:
+* > "dotnet restore"
+* > "dotnet build"
+* > "dotnet run"
+* Then go to "http://localhost:5000" to see webpage
+* To run the tests, use these commands from the directory "HairSalon.Solution":
+* > "cd HairSalon.Tests"
+* > "dotnet test"
 
-##Technologies Used
-_C#, HTML, .NET,MAMP, and MyPhpAdmin_
+### Known Bugs
+* No Known Bugs
 
-###License
-*MIT License*
-Copyright (c) 2019 **_Jimmy Zebroski_**
+### Languages/Libraries Used
+* C#
+* .NET
+* MAMP
+* MySql
+* PhpMyAdmin
+
+
+### Support or Contact
+* For any questions or suggestions email me at
+zebrozkii@gmail.com
+
+Copyright (c) 2019 Jimmy Zebroski.

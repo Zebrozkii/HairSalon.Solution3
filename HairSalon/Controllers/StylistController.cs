@@ -67,8 +67,8 @@ namespace HairSalon.Controllers
        Client newClient = new Client(clientName, stylistId);
        newClient.Save();
        List<Client> stylistClients = foundStylist.GetClient();
-       model.Add("client", stylistClients);
-       model.Add("stylist", foundStylist);
+       model.Add("clients", stylistClients);
+       model.Add("stylists", foundStylist);
        return View("Show", model);
      }
      [HttpGet("/stylists/{stylistId}/edit")]

@@ -1,5 +1,6 @@
-<h3>Here are all the clients for this stylist:</h3>
+<h1>Stylist details: Name: @Model["stylist"].GetName()</h1>
 
+<h3>Here are all the clients for @Model["stylist"].GetName():</h3>
 
 <ol>
 @foreach (var client in @Model["client"])
@@ -22,7 +23,7 @@
 
 <h4>Add a specialty to stylist:</h4>
 
-<form action='/stylists/@Model["stylist"].GetId()/specialty/edit' method='post'>
+<form action='/stylists/@Model["stylist"].GetId()/specialty/new' method='post'>
     <label for='specialtyId'>Select a Specialty</label>
     <select id='specialtyId' name='specialtyId' type='text'>
     @foreach (var specialty in @Model["allSpecialty"])
@@ -38,6 +39,6 @@
 <form action="/stylists/@Model["stylist"].GetId()/delete" method="delete">
   <button type="submit">Delete this stylist</button>
 </form>
-<p><a href='stylists/@Model["stylist"].GetId()/clients/new'>Add a new client</a></p>
+<p><a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add a new client</a></p>
 <p><a href='/stylists'>Return to stylist list</a></p>
 <a href='/stylists/@Model["stylist"].GetId()/edit'>Click here to edit stylist name.</a>

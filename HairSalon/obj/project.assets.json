@@ -9735,11 +9735,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jimmy/Desktop/HairSalon.Solution/HairSalon/HairSalon.csproj",
+      "projectUniqueName": "/Users/jimmy/Desktop/HairSalon3.Solution /HairSalon/HairSalon.csproj",
       "projectName": "HairSalon",
-      "projectPath": "/Users/jimmy/Desktop/HairSalon.Solution/HairSalon/HairSalon.csproj",
+      "projectPath": "/Users/jimmy/Desktop/HairSalon3.Solution /HairSalon/HairSalon.csproj",
       "packagesPath": "/Users/jimmy/.nuget/packages/",
-      "outputPath": "/Users/jimmy/Desktop/HairSalon.Solution/HairSalon/obj/",
+      "outputPath": "/Users/jimmy/Desktop/HairSalon3.Solution /HairSalon/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/jimmy/.nuget/NuGet/NuGet.Config"
